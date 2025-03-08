@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Planet Hunters" />
+    <meta
+      property="og:url"
+      content="https://webdesigner-go.com/planet-hunters/"
+    />
+    <meta
+      property="og:description"
+      content="奪われた故郷の星を取り戻せ、壮大なSFファンタジー。銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。"
+    />
+    <meta
+      property="og:image"
+      content="https://webdesigner-go.com/planet-hunters/src/img/ogp.png"
+    />
+    <meta
+      name="description"
+      content="奪われた故郷の星を取り戻せ、壮大なSFファンタジー。銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。"
+    />
+    <title>Planet Hunters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@500;600;700&family=Noto+Sans+JP:wght@500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link href="./src/css/styles.css" rel="stylesheet" />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <!-- js -->
+
+    <link rel="icon" type="image/png" href="icon-192x192.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="apple-touch-icon-180x180.png"
+    />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v12.0"
+      nonce="l8bnbbly"
+    ></script>
+
+    <!-- ローディング画面 -->
+    <div
+      id="js-loading"
+      class="mv fixed inset-0 flex flex-col gap-4 items-center justify-center bg-black z-50 transition-opacity duration-2000"
+    >
+      <div
+        class="w-20 h-20 border-4 border-transparent text-[#00FFF5] text-4xl animate-spin flex items-center justify-center border-t-[#00FFF5] rounded-full"
+      >
+        <div
+          class="w-16 h-16 border-4 border-transparent text-[#00FFF5] text-2xl animate-spin flex items-center justify-center border-t-[#00FFF5] rounded-full"
+        >
+          <div class="text-[#00FFF5]">&#9679;</div>
+        </div>
+      </div>
+      <p>
+        <img src="src/img/loading.svg" alt="Loading" class="w-24" />
+      </p>
+    </div>
+
+    <div class="bgParallax fixed top-0 left-0 w-full h-screen -z-10">
+      <div class="absolute inset-0 w-full h-full">
+        <video
+          class="w-full h-full object-cover"
+          playsinline
+          muted
+          autoplay
+          loop
+        >
+          <source src="src/video/bg_movie.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <!-- header -->
+    <header class="fixed top-0 z-10 bg- w-full bg-gradient-to-b from-black to-transparent">
+      <div
+        class="flex justify-between h-[130px] w-[min(100%-60px,1380px)] mx-auto z-20 px-4 py-[27px]"
+      >
+        <div class="mt-4">
+          <a href="."><img src="src/img/logo.svg" alt="Necopon games" /></a>
+        </div>
+        <div class="">
+          <nav class="gnav">
+            <ul class="flex gap-8 items-center text-primary text-base font-exo">
+              <li class="">
+                <a
+                  href="#story"
+                  class="hover:text-white transition-all duration-300"
+                  >STORY</a
+                >
+              </li>
+              <li class="gnav-item">
+                <a
+                  href="#trailer"
+                  class="hover:text-white transition-all duration-300"
+                  >TRAILER</a
+                >
+              </li>
+              <li class="gnav-item gnav-cta font-exo">
+                <a href="#" class="btn-header">PLAY NOW</a>
+              </li>
+            </ul>
+            <div class="flex justify-end mt-2">
+              <div class="audioSwitch">
+                <button id="js-audio-play">
+                  <span class="audioSwitch-text text-[#BFBFBF] text-sm font-exo"
+                    >SOUND ON</span
+                  >
+                  <span
+                    class="audioSwitch-icon material-icons-round text-[#BFBFBF] align-top text-sm"
+                    >volume_up</span
+                  >
+                </button>
+              </div>
+              <audio id="js-audio" loop>
+                <source
+                  src="src/audio/cinematic-melody-main-9785.mp3"
+                  type="audio/mp3"
+                />
+              </audio>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="relative w-[min(100%-60px,1380px)] mx-auto h-screen flex flex-col items-center justify-center text-white font-exo"
+    >
+      <div class="absolute top-1/4 left-0 text-left ml-[10%]">
+        <div
+          class="text-lg font-bold uppercase leading-[32px] tracking-[0.2em]"
+        >
+          VR GAME
+        </div>
+        <h1
+          class="text-[140px] font-semibold leading-[126px] tracking-[0.05em] font-exo"
+        >
+          Planet<br />Hunters
+        </h1>
+        <div class="text-xl font-noto mt-2 font-medium tracking-[1em]">
+          惑星を奪還せよ
+        </div>
+        <div class="mt-6">
+          <a href="#" class="btn-primary">PLAY NOW</a>
+        </div>
+      </div>
+
+    </section>
+    <div
+    class=" absolute bottom-5 right-4 bg-black border border-solid border-primary px-1 py-1 text-sm flex overflow-hidden w-[360px] h-[31px]"
+  >
+    <p class="flex whitespace-nowrap animate-marquee">
+      <span class="inline-block mr-2">2030.02.20</span
+      ><span class="text-primary inline-block"
+        >バージョン5.6リリース：アバター・アイテム大量追加</span
+      >
+    </p>
+  </div>
+  <div class="absolute left-3 bottom-4 text-sm text-primary flex gap-2">
+    <!-- スクロールバー（棒） -->
+    <div class="relative flex flex-col items-center">
+      <span class="w-[1px] h-[50px] bg-primary"></span>
+      <!-- スクロールする円 -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[10px] h-[10px] bg-primary rounded-full animate-scrollDown"
+      ></div>
+    </div>
+    <div class="text-xs tracking-widest">
+      <span class="writing-mode-vertical">Scroll</span>
+    </div>
+  </div>
+    <main class="content">
+      <section
+        class="w-full h-fit bg-[url('/src/img/bg_story.webp')] bg-cover bg-center bg-no-repeat pt-[140px] pb-[123px]"
+        id="story"
+      >
+        <div class="w-[min(100%-60px,1190px)] mx-auto px-5">
+          <div class="box-border flex flex-col md:flex-row-reverse gap-10 md:gap-20 items-center">
+            <div class="w-full md:w-[calc((559/1190)*100%)] md:order-1">
+              <h2 class="text-primary font-exo text-[3rem] md:text-[5rem] leading-none tracking-[0.02em] font-bold relative before:absolute before:-bottom-2 before:left-0 before:w-[80px] before:h-[8px] before:bg-primary">STORY</h2>
+              <div class="text-white text-[1.2rem] md:text-[2rem] leading-normal tracking-[0.02em] font-noto font-bold mt-[70px]">
+                奪われた故郷の星を取り戻せ<br />壮大なSFファンタジー
+              </div>
+              <div class="text-white text-base md:text-lg mt-[30px] font-noto leading-7">
+                <p>
+                  銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。将軍の側近マンチカンは軍政府に従わない人間を辺境の星ニャゴーへ強制的に追放。食料や資源の乏しいニャゴーでは多くの難民が発生し飢餓に苦しんでいた。ニャゴーのスラム街で育った孤児の姉弟がいた。姉のミケと弟のタマは母親をボスネコ将軍に殺された事実を知る。母の復讐のため、そして故郷の惑星ネコチャンを奪還すべく、ミケとタマはいま行動に出る！
+                </p>
+              </div>
+            </div>
+            <div class="flex-1 skew-x-[-5deg] shadow-[7px_7px_0px_0px_theme(colors.primary)]">
+              <img src="src/img/story01.webp" alt="姉のミケと弟のタマ" class="w-full h-auto vertical-bottom" />
+            </div>
+          </div>
+
+          <div class="mt-20 flex flex-col md:flex-row gap-10 md:gap-20 items-center">
+            <div class="w-full md:w-[calc((559/1190)*100%)] md:order-1">
+              <div class="text-white text-[1.2rem] md:text-[2rem] leading-normal tracking-[0.02em] font-noto font-bold mt-4">
+                隠された陰謀を暴け<br />衝撃的な事実に驚愕
+              </div>
+              <div class="text-white text-base md:text-lg font-noto mt-[30px] leading-7">
+                <p>
+                  ミケとタマはネコジャラシ作戦により軍政府の最新鋭の小型船チュールを奪うことに成功。チュールのハイテンションワープ恒星間航行により惑星ネコチャンへあとわずか３時間で到着という時、小惑星帯アビシニアンで謎の救難信号を受信する。意外にも信号の発信源はボスネコ将軍だった。彼は今にも絶えそうなかすれた声で「私はおまえたちミケとタマの父親なのだ」と語る。その瞬間、ミケとタマの育ての親同然で仲間のはずのホワイトオッドアイがタマの背中を刀で切り裂いたのだった......
+                </p>
+              </div>
+            </div>
+            <div class="flex-1 skew-x-[5deg] shadow-[-7px_7px_0px_0px_theme(colors.primary)]">
+              <img src="src/img/story02.webp" alt="謎の人物" class="w-full h-auto" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="relative w-full mx-auto min-h-[350px] py-20 before:absolute before:-top-1 before:left-0 before:w-[430px] before:h-[40px] before:bg-[url('/src/img/bg-line-top-black.svg')] before:bg-cover after:absolute after:-bottom-1 after:right-0 after:w-[430px] after:h-[40px] after:bg-[url('/src/img/bg-line-bottom-color.svg')] after:bg-cover">
+          <div class="w-[min(100%-60px,1190px)] mx-auto flex flex-col items-center gap-2">
+            <div class="font-exo text-white text-[4rem] eading-none tracking-[0.05em] font-bold">ARE YOU READY TO FIGHT?</div>
+            <div class="btn-primary"><a href="#" class="btn">PLAY NOW</a></div>
+          </div>
+        </div>
+
+      <section class="w-full h-fit mb:h-[930px] bg-primary p-28" id="trailer">
+        <div class="w-[min(100%-20px,1190px)] h-full mx-auto">
+            <h2 class="text-black text-[5rem] font-bold eading-none tracking-[0.05em] font-exo relative before:absolute before:bottom-1 before:left-0 before:w-[80px] before:h-[8px] before:bg-black">TRAILER</h2>
+            <div class="w-full mt-20">
+              <iframe
+                class="block w-full max-w-[1110px] aspect-video"
+                src="https://www.youtube.com/embed/RO_RRKTYzUY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="relative min-h-[350px] py-20 before:absolute before:-top-1 before:left-0 before:w-[430px] before:h-[40px] before:bg-[url('/src/img/bg-line-top-color.svg')] before:bg-cover after:absolute after:-bottom-1 after:right-0 after:w-[430px] after:h-[40px] after:bg-[url('/src/img/bg-line-bottom-black.svg')] after:bg-cover">
+          <div class="flex w-[min(100%-60px,1190px)] mx-auto flex-col items-center gap-2">
+            <div class="font-exo text-white text-[4rem] eading-none tracking-[0.05em] font-bold">ARE YOU READY TO FIGHT?</div>
+            <div class="btn-primary"><a href="#" class="btn">PLAY NOW</a></div>
+          </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="w-full bg-black text-white">
+      <div class="w-[min(100%-60px,1380px)] mx-auto py-10 flex justify-between align-middle">
+        <div class="">
+          <ul class="flex gap-4">
+            <li class="snsShare-item">
+              <div
+                class="fb-like"
+                data-href="URLが入る"
+                data-width=""
+                data-layout="button_count"
+                data-action="like"
+                data-size="large"
+                data-share="true"
+              ></div>
+            </li>
+            <li class="snsShare-item">
+              <a
+                href="https://twitter.com/share?url=URLが入る"
+                class="twitter-share-button"
+                data-size="large"
+                data-show-count="false"
+                data-lang="ja"
+                >ツイート</a
+              >
+            </li>
+            <li class="snsShare-item">
+              <div
+                class="line-it-button"
+                data-lang="ja"
+                data-type="share-c"
+                data-url="URLが入る"
+                style="display: none"
+              ></div>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-copyright">&copy;Necopon games</div>
+      </div>
+    </footer>
+    <!-- /footer -->
+
+    <div class="block sm:block md:hidden">
+      <a href="#" class="btn-primary">PLAY NOW</a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/src/js/script.js"></script>
+
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
+    <script
+      src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
+      async="async"
+      defer="defer"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply w-[170px] h-[40px] text-sm p-2
+               sm:w-[230px] sm:h-[60px] sm:text-[1.2rem] sm:p-3
+               bg-primary text-black font-bold flex items-center justify-center
+               hover:shadow-[0_0_20px_theme(colors.primary)] transition-all duration-300 font-exo;
+  }
+
+  .btn-header {
+    @apply w-[164px] h-[45px] text-[0.9rem] p-3 hidden sm:flex
+               bg-primary text-black font-bold items-center justify-center
+               hover:shadow-[0_0_20px_theme(colors.primary)] transition-all duration-300 font-exo;
+  }
+}
+
+@layer utilities {
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+  }
+}
