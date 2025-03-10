@@ -30,22 +30,22 @@ $(function () {
     return false;
   });
 
-  //SP用のCTAボタンの表示
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    $spCTA = $(".spCTA");
-    $spCTA.hide();
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 1000) {
-        $spCTA.fadeIn();
-      } else {
-        $spCTA.fadeOut();
-      }
-    });
-    $spCTA.on("click", function () {
-      $("body,html").animate({ scrollTop: 0 }, 300);
-      return false;
-    });
-  }
+  // //SP用のCTAボタンの表示
+  // if (window.matchMedia("(max-width: 768px)").matches) {
+  //   $spCTA = $(".spCTA");
+  //   $spCTA.hide();
+  //   $(window).scroll(function () {
+  //     if ($(this).scrollTop() > 1000) {
+  //       $spCTA.fadeIn();
+  //     } else {
+  //       $spCTA.fadeOut();
+  //     }
+  //   });
+  //   $spCTA.on("click", function () {
+  //     $("body,html").animate({ scrollTop: 0 }, 300);
+  //     return false;
+  //   });
+  // }
 
   //オーディオの再生と停止
   var audio = $("#js-audio").get(0);

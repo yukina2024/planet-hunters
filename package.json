@@ -1,19 +1,21 @@
 {
   "name": "planet-hunters",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "npx tailwindcss -i ./src/css/styles.css -o ./assets/css/output.css --watch & vite",
+  "build": "npx tailwindcss -i ./src/css/styles.css -o ./assets/css/output.css --minify && mkdir -p assets/js assets/img assets/audio assets/video && cp src/js/script.js assets/js/ && cp -r src/img/. assets/img/ && cp -r src/audio/. assets/audio/ && cp -r src/video/. assets/video/ && cp node_modules/gsap/dist/gsap.min.js assets/js/",
+  "preview": "vite preview"
+},
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "fs-extra": "^11.3.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.2.1"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "gsap": "^3.12.7",
     "tailwind-merge": "^3.0.2"
   }
 }

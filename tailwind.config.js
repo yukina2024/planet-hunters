@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/js/**/*.js"],
+  content: [
+    "./**/*.html", // ✅ これがないとHTMLのクラスを認識しない
+    "./src/**/*.js",
+    "./src/css/**/*.css", // ✅ ここを追加
+  ],
   theme: {
     extend: {
       colors: {
@@ -27,6 +31,14 @@ module.exports = {
       animation: {
         marquee: "marquee 10s linear infinite",
         scrollDown: "scrollDown 2s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "bg-line-bottom-color": "url('/assets/img/bg-line-bottom-color.svg')",
+        "bg-line-top-black": "url('/assets/img/bg-line-top-black.svg')",
+        "bg-line-top-color": "url('/assets/img/bg-line-top-color.svg')",
+      },
+      screens: {
+        xs: "500px", // 🔥 500px以下の時に適用
       },
     },
   },
