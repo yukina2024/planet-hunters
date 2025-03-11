@@ -1,15 +1,17 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   base: "/",
-  plugins: [react()],
   build: {
     outDir: "dist",
     emptyOutDir: true,
     assetsDir: "assets",
     rollupOptions: {
+      input: {
+        script: "./src/js/script.js", // ✅ script.js をビルド対象に指定
+      },
       output: {
+        entryFileNames: "assets/js/script.js",
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && assetInfo.name.endsWith(".css")) {
             return "assets/css/[name][extname]";
