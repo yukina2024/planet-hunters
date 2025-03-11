@@ -1,8 +1,10 @@
 # .gitignore
 node_modules/
-dist/
 .vscode/
 .DS_Store
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+yarn-error.log*git rm -r --cached dist # キャッシュを削除
+git add dist
+git commit -m "Fix: Track dist directory"
+git push origin main
