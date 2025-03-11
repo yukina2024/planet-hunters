@@ -15,7 +15,7 @@
     />
     <meta
       property="og:image"
-      content="https://webdesigner-go.com/planet-hunters/assets/img/ogp.png"
+      content="https://webdesigner-go.com/planet-hunters/./dist/assets/img/ogp.png"
     />
     <meta
       name="description"
@@ -33,7 +33,7 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="./dist/assets/css/output.css" rel="stylesheet" />
     <!-- js -->
 
     <link rel="icon" type="image/png" href="icon-192x192.png" />
@@ -70,7 +70,7 @@
         </div>
       </div>
       <p>
-        <img src="assets/img/loading.svg" alt="Loading" class="w-24" />
+        <img src="./dist/assets/img/loading.svg" alt="Loading" class="w-24" />
       </p>
     </div>
 
@@ -83,7 +83,7 @@
           autoplay
           loop
         >
-          <source src="assets/video/bg_movie.mp4" type="video/mp4" />
+          <source src="./dist/assets/video/bg_movie.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
@@ -94,7 +94,7 @@
         class="flex justify-between h-[80px] md:h-[100px] w-[min(100%-60px,1380px)] mx-auto z-20 py-[27px]"
       >
         <div class="h-[15px] w-[120px] md:h-[21px] md:w-[172px]">
-          <a href="."><img src="assets/img/logo.svg" alt="Necopon games" /></a>
+          <a href="."><img src="./dist/assets/img/logo.svg" alt="Necopon games" /></a>
         </div>
           <nav class="">
             <ul class="flex gap-8 items-end md:items-center text-primary text-xs md:text-base font-exo">
@@ -118,7 +118,7 @@
             </ul>
           </nav>
       </div>
-      <div class="w-[min(100%-60px,1380px)] mx-auto flex justify-end">
+      <div class="w-[min(100%-60px,1380px)] mx-auto flex justify-end -mt-5 md:-mt-2">
         <div class="audioSwitch">
           <button id="js-audio-play">
             <span class="audioSwitch-text text-[#BFBFBF] text-xs md:text-sm font-exo"
@@ -132,7 +132,7 @@
         </div>
         <audio id="js-audio" loop>
           <source
-            src="assets/audio/cinematic-melody-main-9785.mp3"
+            src="./dist/assets/audio/cinematic-melody-main-9785.mp3"
             type="audio/mp3"
           />
         </audio>
@@ -161,9 +161,9 @@
         </div>
       </div>
       <div
-      class="absolute bottom-5 right-4 bg-black border border-solid border-primary p-2 overflow-hidden w-[192px] h-[21px] md:w-[360px] md:h-[31px]"
+      class="absolute bottom-5 right-4 bg-black border border-solid border-primary p-1 md:p-2 overflow-hidden w-[192px] h-[27px] md:w-[360px] md:h-[31px] whitespace-nowrap"
     >
-      <p class="animate-marquee text-xs md:text-sm">
+      <p class="animate-marquee w-full text-xs md:text-sm">
         <span class="inline-block mr-2">2030.02.20</span
         ><span class="text-primary inline-block"
           >バージョン5.6リリース：アバター・アイテム大量追加</span
@@ -187,9 +187,9 @@
 
     <main class="content">
       <section
-        class="w-full h-fit bg-cover bg-center bg-no-repeat pt-[140px] pb-[123px]"
+        class="w-full h-fit bg-cover bg-center bg-no-repeat pt-[50px] pb-[43px] md:pt-[140px] md:pb-[123px]"
         id="story"
-        style="background-image: url('/assets/img/bg_story.webp');"
+        style="background-image: url('./dist/assets/img/bg_story.webp');"
       >
         <div class="w-[min(100%-60px,1190px)] mx-auto px-5">
           <div class="box-border flex flex-col md:flex-row-reverse gap-10 md:gap-20 items-center">
@@ -205,7 +205,7 @@
               </div>
             </div>
             <div class="flex-1 skew-x-[-5deg] shadow-[7px_7px_0px_0px_theme(colors.primary)]">
-              <img src="assets/img/story01.webp" alt="姉のミケと弟のタマ" class="w-full max-w-full h-auto vertical-bottom" />
+              <img src="./dist/assets/img/story01.webp" alt="姉のミケと弟のタマ" class="w-full max-w-full h-auto vertical-bottom" />
             </div>
           </div>
 
@@ -221,7 +221,7 @@
               </div>
             </div>
             <div class="flex-1 skew-x-[5deg] shadow-[-7px_7px_0px_0px_theme(colors.primary)]">
-              <img src="assets/img/story02.webp" alt="謎の人物" class="w-full max-w-full h-auto vertical-bottom" />
+              <img src="./dist/assets/img/story02.webp" alt="謎の人物" class="w-full max-w-full h-auto vertical-bottom" />
             </div>
           </div>
         </div>
@@ -230,10 +230,10 @@
       <div class="relative w-full mx-auto md:min-h-[350px] py-20 
       before:absolute before:-top-1 before:left-0 
       before:w-[194px] before:h-[30px] xs:before:w-[250px] xs:before:h-[35px] md:before:w-[430px] md:before:h-[40px] 
-      before:bg-[url('/assets/img/bg-line-top-black.svg')] before:bg-contain 
+      before:bg-[url('/./dist/assets/img/bg-line-top-black.svg')] before:bg-cover before:bg-bottom xs:before:bg-slant-sp
       after:absolute after:-bottom-1 after:right-0 
       after:w-[194px] after:h-[30px] xs:after:w-[250px] xs:after:h-[35px] md:after:w-[430px] md:after:h-[40px] 
-      after:bg-[url('/assets/img/bg-line-bottom-color.svg')] after:bg-cover">
+      after:bg-[url('/./dist/assets/img/bg-line-bottom-color.svg')] after:bg-cover">
           <div class="w-[min(100%-60px,1190px)] mx-auto flex flex-col items-center gap-2">
             <div class="font-exo text-white text-[2rem] md:text-[4rem] eading-none tracking-[0.05em] font-bold">ARE YOU READY TO FIGHT?</div>
             <div class="btn-primary"><a href="#" class="btn">PLAY NOW</a></div>
@@ -260,10 +260,10 @@
       <div class="relative md:min-h-[350px] py-20 
       before:absolute before:-top-1 before:left-0 
       before:w-[194px] before:h-[30px] xs:before:w-[250px] xs:before:h-[35px] md:before:w-[430px] md:before:h-[40px] 
-      before:bg-[url('/assets/img/bg-line-top-color.svg')] before:bg-contain bg-right-bottom
+      before:bg-[url('/./dist/assets/img/bg-line-top-color.svg')] before:bg-cover before:bg-bottom xs:before:bg-slant-sp
       after:absolute after:-bottom-1 after:right-0 
       after:w-[194px] after:h-[30px] xs:after:w-[250px] xs:after:h-[35px] md:after:w-[430px] md:after:h-[40px] 
-      after:bg-[url('/assets/img/bg-line-bottom-black.svg')] after:bg-cover">
+      after:bg-[url('/./dist/assets/img/bg-line-bottom-black.svg')] after:bg-cover">
           <div class="flex w-[min(100%-60px,1190px)] mx-auto flex-col items-center gap-2">
             <div class="font-exo text-white text-[2rem] md:text-[4rem]  eading-none tracking-[0.05em] font-bold">ARE YOU READY TO FIGHT?</div>
             <div class="btn-primary"><a href="#" class="btn">PLAY NOW</a></div>
@@ -272,7 +272,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="w-full bg-black text-white">
+    <footer class="w-full bg-black text-white pb-[60px] md:pb-[0px]">
       <div class="w-[min(100%-60px,1380px)] mx-auto py-10 flex flex-col md:flex-row  justify-center md:justify-between align-middle">
         <div class="">
           <ul class="flex gap-4 flex-col md:flex-row">
@@ -313,18 +313,16 @@
     </footer>
     <!-- /footer -->
 
-    <button id="js-footer-btn"
-    class="fixed bottom-0 left-0 w-full bg-black py-5 px-2 md:hidden flex justify-center opacity-0 pointer-events-none">
-    <span class="text-white font-bold text-lg">PLAY NOW</span>
-  </button>
+    <button class="js-footer-btn fixed bottom-0 left-0 w-full bg-black py-5 px-2 md:hidden flex justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+      <span class="btn-footer">PLAY NOW</span>
+    </button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/gsap.js"></script>
+    <script src="./dist/assets/js/script.js"></script>
 
     <script
       async
-      src="https://platform.twitter.com/widgets.js"
+      src=""
       charset="utf-8"
     ></script>
     <script

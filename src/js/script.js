@@ -73,3 +73,28 @@ $(function () {
     $(".audioSwitch-icon").css("color", "#BFBFBF");
   };
 });
+
+$(function () {
+  var $footerBtn = $(".js-footer-btn");
+
+  if ($footerBtn.length === 0) {
+    console.error("ボタンが見つかりません！");
+    return;
+  }
+
+  console.log("ボタンが見つかりました！");
+
+  $(window).on("scroll", function () {
+    console.log("スクロール量:", $(this).scrollTop());
+
+    if ($(this).scrollTop() > 300) {
+      $footerBtn
+        .removeClass("opacity-0 pointer-events-none")
+        .addClass("opacity-100 pointer-events-auto");
+    } else {
+      $footerBtn
+        .removeClass("opacity-100 pointer-events-auto")
+        .addClass("opacity-0 pointer-events-none");
+    }
+  });
+});

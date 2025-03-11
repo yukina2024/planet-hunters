@@ -26,4 +26,16 @@
   .writing-mode-vertical {
     writing-mode: vertical-rl;
   }
+  .clip-inset-full {
+    clip-path: inset(50% 50% 50% 50%);
+  }
+  .clip-inset-none {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  @media (max-width: 768px) {
+    /* SP (スマホ) だけ適用 */
+    .bg-slant-sp {
+      clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+    }
+  }
 }

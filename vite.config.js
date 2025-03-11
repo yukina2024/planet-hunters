@@ -1,35 +1,22 @@
-const { defineConfig } = require("vite");
-const fs = require("fs-extra");
+import { defineConfig } from "vite";
 
-module.exports = defineConfig({
-  root: ".",
-  base: "/",
+export default defineConfig({
   build: {
-    outDir: "assets",
+    outDir: "dist",
     emptyOutDir: true,
-    assetsDir: "",
+    assetsDir: "assets",
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith(".css")) {
-            return "css/[name][extname]"; // ✅ CSS → assets/css/
+          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+            return "assets/css/[name][extname]";
           }
-          if (assetInfo.name.endsWith(".js")) {
-            return "js/[name][extname]"; // ✅ JS → assets/js/
+          if (assetInfo.name && assetInfo.name.endsWith(".js")) {
+            return "assets/js/[name][extname]";
           }
-          return "img/[name][extname]"; // ✅ 他のファイルはビルドしない
+          return "assets/img/[name][extname]";
         },
       },
     },
   },
-  plugins: [
-    {
-      name: "copy-static-files",
-      closeBundle() {
-        // ✅ 画像・動画・音声を `assets/` にコピー
-        fs.copySync("src/img", "assets/img", { overwrite: true });
-        fs.copySync("src/audio", "assets/audio", { overwrite: true });
-      },
-    },
-  ],
 });
