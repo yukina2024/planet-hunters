@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./**/*.html", // ✅ これがないとHTMLのクラスを認識しない
-    "./src/**/*.js",
-    "./src/css/**/*.css", // ✅ ここを追加
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
