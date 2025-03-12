@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import copy from "rollup-plugin-copy";
 
 export default defineConfig({
-  base: "/dist/", // ✅ 本番環境のためにベースURLを /dist/ に設定
+  base: "/", // ✅ 本番環境のためにベースURLを /dist/ に設定
   plugins: [
     react(),
     copy({
