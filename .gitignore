@@ -8,3 +8,4 @@ yarn-error.log*git rm -r --cached dist # キャッシュを削除
 git add dist
 git commit -m "Fix: Track dist directory"
 git push origin main
+.vercel

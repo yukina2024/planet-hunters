@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import copy from "rollup-plugin-copy";
 
 export default defineConfig({
-  base: "./",
+  base: "/dist/", // ✅ 本番環境のためにベースURLを /dist/ に設定
   plugins: [
     react(),
     copy({
@@ -12,7 +12,7 @@ export default defineConfig({
         { src: "src/video/**/*", dest: "dist/assets/video" },
         { src: "src/img/**/*", dest: "dist/assets/img" }, // 画像をコピー
         { src: "src/css/**/*", dest: "dist/assets/css" }, // CSSをコピー
-        { src: "src/js/**/*", dest: "dist/assets/js" },
+        { src: "src/js/**/*", dest: "dist/assets/js" }, // JSをコピー
       ],
       hook: "writeBundle",
     }),
@@ -23,15 +23,15 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       input: {
-        script: "./src/js/script.js", // ✅ script.js をビルド対象に指定
+        main: "./src/js/script.js", // ✅ script.js をエントリポイントに設定
       },
       output: {
-        entryFileNames: "assets/js/script.js",
+        entryFileNames: "assets/js/[name].js", // ✅ JSのファイル名を統一
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+          if (assetInfo.name?.endsWith(".css")) {
             return "assets/css/[name][extname]";
           }
-          if (assetInfo.name && assetInfo.name.endsWith(".js")) {
+          if (assetInfo.name?.endsWith(".js")) {
             return "assets/js/[name][extname]";
           }
           return "assets/img/[name][extname]";
