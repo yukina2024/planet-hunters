@@ -29,9 +29,10 @@ module.exports = {
         scrollDown: "scrollDown 2s ease-in-out infinite",
       },
       backgroundImage: {
-        "bg-line-bottom-color": "url('/assets/img/bg-line-bottom-color.svg')",
-        "bg-line-top-black": "url('/assets/img/bg-line-top-black.svg')",
-        "bg-line-top-color": "url('/assets/img/bg-line-top-color.svg')",
+        "bottom-color": "url('/dist/assets/img/bottom-color.svg')",
+        "top-black": "url('/dist//assets/img/top-black.svg')",
+        "top-color": "url('/dist//assets/img/top-color.svg')",
+        "bottom-black": "url('/dist/assets/img/bottom-black.svg')",
       },
       screens: {
         xs: "500px", // 🔥 500px以下の時に適用

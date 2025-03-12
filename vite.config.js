@@ -22,9 +22,6 @@ export default defineConfig({
     emptyOutDir: true,
     assetsDir: "assets",
     rollupOptions: {
-      input: {
-        main: "./src/js/script.js", // ✅ script.js をエントリポイントに設定
-      },
       output: {
         entryFileNames: "assets/js/[name].js", // ✅ JSのファイル名を統一
         assetFileNames: (assetInfo) => {
