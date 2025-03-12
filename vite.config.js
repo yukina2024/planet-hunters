@@ -1,7 +1,22 @@
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import copy from "rollup-plugin-copy";
 
 export default defineConfig({
-  base: "/",
+  base: "./",
+  plugins: [
+    react(),
+    copy({
+      targets: [
+        { src: "src/audio/**/*", dest: "dist/assets/audio" },
+        { src: "src/video/**/*", dest: "dist/assets/video" },
+        { src: "src/img/**/*", dest: "dist/assets/img" }, // 画像をコピー
+        { src: "src/css/**/*", dest: "dist/assets/css" }, // CSSをコピー
+        { src: "src/js/**/*", dest: "dist/assets/js" },
+      ],
+      hook: "writeBundle",
+    }),
+  ],
   build: {
     outDir: "dist",
     emptyOutDir: true,

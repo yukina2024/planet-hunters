@@ -1,57 +1,100 @@
 $(function () {
   $(window).on("load", function () {
     setTimeout(function () {
-      var t = $("#js-loading");
-      t.fadeOut(2e3, function () {
+      var loading = $("#js-loading");
+      loading.fadeOut(2000, function () {
         $(this).addClass("hidden");
       });
-    }, 1e3);
-  }),
-    $(window).resize(function () {
-      var t = $(window).height();
-      $(".mv").height(t);
-    }),
-    $('a[href^="#"]').on("click", function () {
-      var t = 300,
-        n = $(this).attr("href"),
-        e = $(n == "#" || n == "" ? "html" : n),
-        s = e.offset().top;
-      return $("html, body").animate({ scrollTop: s }, t, "swing"), !1;
-    });
-  var o = $("#js-audio").get(0),
-    i = !1;
-  (o.volume = 0.5),
-    $("#js-audio-play").click(function () {
-      i ? o.pause() : o.play();
-    }),
-    (o.onplaying = function () {
-      (i = !0),
-        $(".audioSwitch").addClass("on"),
-        $(".audioSwitch-text").html("SOUND OFF").css("color", "white"),
-        $(".audioSwitch-icon").css("color", "white");
-    }),
-    (o.onpause = function () {
-      (i = !1),
-        $(".audioSwitch").removeClass("on"),
-        $(".audioSwitch-text").html("SOUND ON").css("color", "#BFBFBF"),
-        $(".audioSwitch-icon").css("color", "#BFBFBF");
-    });
+    }, 1000);
+  });
+
+  //画面リサイズ時にMVの高さを調整
+  $(window).resize(function () {
+    var windowHeight = $(window).height();
+    $(".mv").height(windowHeight);
+  });
+
+  //ページ内スクロール
+  $('a[href^="#"]').on("click", function () {
+    var speed = 300;
+    var href = $(this).attr("href");
+    var target = $(href == "#" || href == "" ? "html" : href);
+    var position = target.offset().top;
+    $("html, body").animate(
+      {
+        scrollTop: position,
+      },
+      speed,
+      "swing"
+    );
+    return false;
+  });
+
+  // //SP用のCTAボタンの表示
+  // if (window.matchMedia("(max-width: 768px)").matches) {
+  //   $spCTA = $(".spCTA");
+  //   $spCTA.hide();
+  //   $(window).scroll(function () {
+  //     if ($(this).scrollTop() > 1000) {
+  //       $spCTA.fadeIn();
+  //     } else {
+  //       $spCTA.fadeOut();
+  //     }
+  //   });
+  //   $spCTA.on("click", function () {
+  //     $("body,html").animate({ scrollTop: 0 }, 300);
+  //     return false;
+  //   });
+  // }
+
+  //オーディオの再生と停止
+  var audio = $("#js-audio").get(0);
+  var isPlaying = false;
+  audio.volume = 0.5;
+
+  $("#js-audio-play").click(function () {
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  });
+  audio.onplaying = function () {
+    isPlaying = true;
+    $(".audioSwitch").addClass("on");
+    $(".audioSwitch-text").html("SOUND OFF").css("color", "white");
+    $(".audioSwitch-icon").css("color", "white");
+  };
+
+  audio.onpause = function () {
+    isPlaying = false;
+    $(".audioSwitch").removeClass("on");
+    $(".audioSwitch-text").html("SOUND ON").css("color", "#BFBFBF");
+    $(".audioSwitch-icon").css("color", "#BFBFBF");
+  };
 });
+
 $(function () {
-  var o = $(".js-footer-btn");
-  if (o.length === 0) {
+  var $footerBtn = $(".js-footer-btn");
+
+  if ($footerBtn.length === 0) {
     console.error("ボタンが見つかりません！");
     return;
   }
-  console.log("ボタンが見つかりました！"),
-    $(window).on("scroll", function () {
-      console.log("スクロール量:", $(this).scrollTop()),
-        $(this).scrollTop() > 300
-          ? o
-              .removeClass("opacity-0 pointer-events-none")
-              .addClass("opacity-100 pointer-events-auto")
-          : o
-              .removeClass("opacity-100 pointer-events-auto")
-              .addClass("opacity-0 pointer-events-none");
-    });
+
+  console.log("ボタンが見つかりました！");
+
+  $(window).on("scroll", function () {
+    console.log("スクロール量:", $(this).scrollTop());
+
+    if ($(this).scrollTop() > 300) {
+      $footerBtn
+        .removeClass("opacity-0 pointer-events-none")
+        .addClass("opacity-100 pointer-events-auto");
+    } else {
+      $footerBtn
+        .removeClass("opacity-100 pointer-events-auto")
+        .addClass("opacity-0 pointer-events-none");
+    }
+  });
 });
